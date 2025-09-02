@@ -6,8 +6,14 @@
   <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-  <h1>Bienvenido a Groupie Tracker</h1>
-  <p>Este es el punto de inicio 🚀</p>
-  <script src="/static/js/app.js"></script>
+  <h1>Artist List</h1>
+  <ul>
+    {{range .}}
+      <li>
+        <strong>{{.Name}}</strong> <br>
+        Miembros: {{range .Members}}{{.}}, {{end}}
+      </li>
+    {{end}}
+  </ul>
 </body>
 </html>
