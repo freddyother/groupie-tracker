@@ -1,11 +1,13 @@
 # 🎸 Groupie Tracker
 
-Proyecto en Go para consumir la API de Groupie Tracker y mostrar datos de artistas, conciertos y relaciones.
+## Fredy Gallegos
 
-## 🚀 Ejecutar el servidor
+Groupie Trackers consists of receiving a given API and manipulating the data contained in it in order to create a website displaying the information.
+
+## 🚀 To run server
 
 ```bash
 cd cmd/server
 go run main.go
 
-Visita: http://localhost:8080
+go->: http://localhost:8080
