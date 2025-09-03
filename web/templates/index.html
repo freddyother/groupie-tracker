@@ -7,13 +7,27 @@
 </head>
 <body>
   <h1>Artist List</h1>
+
   <ul>
-    {{range .}}
+    {{range .Artists}}
       <li>
-        <strong>{{.Name}}</strong> <br>
-        Miembros: {{range .Members}}{{.}}, {{end}}
+        <strong>{{.Name}}</strong><br>
+        Members: {{range .Members}}{{.}}, {{end}}<br>
+        <img src="{{.Image}}" alt="{{.Name}}" width="150">
       </li>
     {{end}}
   </ul>
+
+  <div class="pagination">
+    {{if .HasPrev}}
+      <a href="/?page={{.PrevPage}}">⬅ Previous</a>
+    {{end}}
+
+    <span>Page {{.Page}}  </span>
+
+    {{if .HasNext}}
+      <a href="/?page={{.NextPage}}">Next ➡</a>
+    {{end}}
+  </div>
 </body>
 </html>
