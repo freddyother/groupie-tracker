@@ -59,7 +59,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		NextPage: page + 1,
 	}
 
-	// renderizar con datos
+	// render with data
 	err = tmpl.Execute(w, data)
 	if err != nil {
 		http.Error(w, "Error ejecutando plantilla", http.StatusInternalServerError)
@@ -73,10 +73,10 @@ func main() {
 	http.HandleFunc("/api/dates", api.GetDates)
 	http.HandleFunc("/api/relation", api.GetRelations)
 
-	// Página principal
+	// Main page
 	http.HandleFunc("/", homeHandler)
 
-	// Archivos estáticos
+	// static files
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
 
 	log.Println("🚀 Server running at http://localhost:8080")
