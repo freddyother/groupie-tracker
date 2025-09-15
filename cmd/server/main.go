@@ -9,7 +9,7 @@ import (
 	api "groupie-tracker/internal/models"
 )
 
-const perPage = 3 // mostrar 3 artistas por página
+const perPage = 3 // show 3 artist per page
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	// cargar plantilla
@@ -19,11 +19,11 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// obtener datos
+	// get artist data
 	artists := api.GetArtistsData()
 	total := len(artists)
 
-	// obtener número de página (default = 1)
+	// get page number (default = 1)
 	page := 1
 	if p := r.URL.Query().Get("page"); p != "" {
 		page, _ = strconv.Atoi(p)
@@ -32,7 +32,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// calcular rangos
+	// calculate rangs
 	start := (page - 1) * perPage
 	end := start + perPage
 	if start > total {

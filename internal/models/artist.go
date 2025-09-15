@@ -130,7 +130,7 @@ var artists = []Artist{
 	{
 		ID:         15,
 		Name:       "Guns N' Roses",
-		Image:      "static/img/guns_n'_roses.jpg",
+		Image:      "static/img/guns_n_roses.jpg",
 		Year:       1985,
 		FirstAlbum: "Appetite for Destruction (1987)",
 		Members:    []string{"Axl Rose", "Slash", "Duff McKagan", "Izzy Stradlin", "Steven Adler"},
