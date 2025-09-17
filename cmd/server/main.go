@@ -15,12 +15,12 @@ func renderFile(w http.ResponseWriter, file string, data any) {
 	tmpl, err := template.ParseFiles(file)
 	if err != nil {
 		log.Println("template error:", err)
-		http.Error(w, "Error cargando plantilla", http.StatusInternalServerError)
+		http.Error(w, "Error loading template", http.StatusInternalServerError)
 		return
 	}
 	if err := tmpl.Execute(w, data); err != nil {
 		log.Println("exec error:", err)
-		http.Error(w, "Error ejecutando plantilla", http.StatusInternalServerError)
+		http.Error(w, "Error executing template", http.StatusInternalServerError)
 	}
 }
 

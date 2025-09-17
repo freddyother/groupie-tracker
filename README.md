@@ -1,7 +1,5 @@
 # 🎸 Groupie Tracker
 
-## Francesca Tafri-Allen
-
 ## Fredy Gallegos
 
 

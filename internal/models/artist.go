@@ -29,7 +29,8 @@ var artists = []Artist{
 		Image:      "static/img/queen.jpg",
 		Year:       1970,
 		FirstAlbum: "Queen (1973)",
-		Members:    []string{"Freddie Mercury", "Brian May", "Roger Taylor", "John Deacon"},
+		Members: []string{"Freddie Mercury", "Brian May", "Roger Taylor", "John Deacon", "Mike Grose",
+			"Barry Mitchell", "Doug Fogie"},
 	},
 	{
 		ID:         3,
