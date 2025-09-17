@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dates - Groupie Tracker</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<nav class="topnav">
+  <div class="topnav__inner">
+    <a class="brand" href="/artists">Groupie Tracker</a>
+    <div class="menu">
+      <a href="/artists"   class="menu__item">Artists</a>
+      <a href="/locations" class="menu__item">Locations</a>
+      <a href="/dates"     class="menu__item active">Dates</a>
+      <a href="/relation"  class="menu__item">Relation</a>
+    </div>
+  </div>
+</nav>
+
+<body>
+  <h1>Concert Dates</h1>
+
+  <div class="cards">
+    {{range .Items}}
+      <article class="card">
+        <div class="card__header">📅 {{.Name}}</div>
+        <div class="card__body">
+          {{range .Dates}}
+            <p class="card__meta">• {{.}}</p>
+          {{end}}
+        </div>
+      </article>
+    {{end}}
+  </div>
+
+  <div class="pagination">
+    {{if .HasPrev}} <a class="btn" href="/dates?page={{.PrevPage}}">⬅ Prev</a>{{end}}
+    <span class="page">Page {{.Page}}</span>
+    {{if .HasNext}} <a class="btn" href="/dates?page={{.NextPage}}">Next ➡</a>{{end}}
+  </div>
+</body>
+</html>

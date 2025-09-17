@@ -5,29 +5,50 @@
   <title>Groupie Tracker</title>
   <link rel="stylesheet" href="/static/css/styles.css">
 </head>
-<body>
-  <h1>Artist List</h1>
 
-  <ul>
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav__inner">
+    <a class="brand" href="/artists">Groupie Tracker</a>
+    <div class="menu">
+      <a href="/artists"   class="menu__item active">Artists</a>
+      <a href="/locations" class="menu__item">Locations</a>
+      <a href="/dates"     class="menu__item">Dates</a>
+      <a href="/relation"  class="menu__item">Relation</a>
+    </div>
+  </div>
+</nav>
+
+<body>
+  <h1>Hall of Fame: Artists</h1>
+
+  <div class="cards">
     {{range .Artists}}
-      <li>
-        <strong>{{.Name}}</strong><br>
-        Members: {{range .Members}}{{.}}, {{end}}<br>
-        <img src="{{.Image}}" alt="{{.Name}}" width="150">
-      </li>
+      <article class="card">
+        <img class="card__img" src="{{.Image}}" alt="{{.Name}}">
+        <div class="card__body">
+          <h3 class="card__title">{{.Name}}</h3>
+
+          <!-- Miembros: sin coma final usando índices nativos -->
+          <p class="card__meta">
+            👥
+            {{- range $i, $m := .Members -}}
+              {{- if $i}}, {{end -}}
+              {{$m -}}
+            {{- end -}}
+          </p>
+
+          <p class="card__meta">🎤 Year: {{.Year}}</p>
+          <p class="card__meta">💿 First album: {{.FirstAlbum}}</p>
+        </div>
+      </article>
     {{end}}
-  </ul>
+  </div>
 
   <div class="pagination">
-    {{if .HasPrev}}
-      <a href="/?page={{.PrevPage}}">⬅ Previous</a>
-    {{end}}
-
-    <span>Page {{.Page}}  </span>
-
-    {{if .HasNext}}
-      <a href="/?page={{.NextPage}}">Next ➡</a>
-    {{end}}
+    {{if .HasPrev}} <a class="btn" href="/?page={{.PrevPage}}">⬅ Prev</a>{{end}}
+    <span class="page">Page {{.Page}}</span>
+    {{if .HasNext}} <a class="btn" href="/?page={{.NextPage}}">Next ➡</a>{{end}}
   </div>
 </body>
 </html>
