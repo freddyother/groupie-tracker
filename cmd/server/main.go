@@ -4,9 +4,10 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 
-	api "groupie-tracker/internal/models"
+	api "github.com/freddyother/groupie-tracker/internal/models"
 )
 
 const perPage = 3 // show 3 artist per page
@@ -229,7 +230,11 @@ func main() {
 	// static files
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
 
-	log.Println("🚀 Server running at http://localhost:8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // para local
+	}
+	log.Println("🚀 Server running at http://localhost:" + port)
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		log.Fatal("Error starting the server: ", err)
