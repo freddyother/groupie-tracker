@@ -30,7 +30,7 @@ var artists = []Artist{
 		Year:       1970,
 		FirstAlbum: "Queen (1973)",
 		Members: []string{"Freddie Mercury", "Brian May", "Roger Taylor", "John Deacon", "Mike Grose",
-			"Barry Mitchell", "Doug Fogie"},
+			"Barry Mitchell"},
 	},
 	{
 		ID:         3,
